@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+build/
+dist/
+vendor/
+notices/
+*.spec
+OnimushaEditor_Backups/
+*.bin
+*.sav

@@ -1,0 +1,784 @@
+{
+  "description": "Short names from installed game MSG records; language IDs: Japanese=0, English=1, SimplifiedChinese=13. Numbered areas are map labels, not official place names.",
+  "sources": {
+    "gm900_001_00points.msg.23": {
+      "sha256": "eda9b95112998d3bf0e65f8c1b14d29f9972d46e2286487030146609c89d3057",
+      "archive": "base"
+    },
+    "gm900_001_00stage.msg.23": {
+      "sha256": "dc87dd43ebace938576b71d70e907a448558d16bf018e80fff9e2ab75a9c77d8",
+      "archive": "base"
+    },
+    "itemdatatext.msg.23": {
+      "sha256": "a1538279cfadfad5253d90a46df579e7f21838e9316315aec33c1aa8d59c0227",
+      "archive": "patch_001"
+    }
+  },
+  "labels": {
+    "Earth-Shakers": {
+      "zh": "大锤【地鸣】",
+      "ja": "大鎚【地鳴】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_8413"
+      ],
+      "kind": "official-item"
+    },
+    "Fine Silk Cloth": {
+      "zh": "绢织物",
+      "ja": "絹織物",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_14487"
+      ],
+      "kind": "official-item"
+    },
+    "Firebird Flute": {
+      "zh": "魔笛【火鸟】",
+      "ja": "魔笛【火鳥】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_22816"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Benkei": {
+      "zh": "幻魔杂记【弁庆】",
+      "ja": "幻魔雑記【弁慶】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_31352"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Burai": {
+      "zh": "幻魔杂记【抚雷】",
+      "ja": "幻魔雑記【撫雷】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_14445"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Byakue": {
+      "zh": "幻魔杂记【百秽】",
+      "ja": "幻魔雑記【百穢】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_336"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Chijiko": {
+      "zh": "幻魔杂记【血儿固】",
+      "ja": "幻魔雑記【血児固】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_22649"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Daidara": {
+      "zh": "幻魔杂记【大唾拉】",
+      "ja": "幻魔雑記【大唾拉】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_10971"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Dohatsu-ten": {
+      "zh": "幻魔杂记【怒伐天】",
+      "ja": "幻魔雑記【怒伐天】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_14467"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Dokyo": {
+      "zh": "幻魔杂记【道狂】",
+      "ja": "幻魔雑記【道狂】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_2212"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Greater Nue": {
+      "zh": "幻魔杂记【大鵺】",
+      "ja": "幻魔雑記【大鵺】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_21211"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Hirehime": {
+      "zh": "幻魔杂记【鳍姬】",
+      "ja": "幻魔雑記【ひれ姫】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_15301"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Hitotsume Gasa": {
+      "zh": "幻魔杂记【一目笠】",
+      "ja": "幻魔雑記【一ツ目笠】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_22384"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Hitotsume Sho": {
+      "zh": "幻魔杂记【一目将】",
+      "ja": "幻魔雑記【一ツ目将】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_13047"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Ifuu": {
+      "zh": "幻魔杂记【畏风】",
+      "ja": "幻魔雑記【畏風】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_11076"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Kogai": {
+      "zh": "幻魔杂记【蛊饲】",
+      "ja": "幻魔雑記【蠱飼】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_20845"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Kogashira": {
+      "zh": "幻魔杂记【蛊头】",
+      "ja": "幻魔雑記【蠱頭】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_1199"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Kubi Akari": {
+      "zh": "幻魔杂记【首灯】",
+      "ja": "幻魔雑記【首灯】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_23589"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Mohja": {
+      "zh": "幻魔杂记【亡邪】",
+      "ja": "幻魔雑記【亡邪】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_8085"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Nue": {
+      "zh": "幻魔杂记【鵺兽】",
+      "ja": "幻魔雑記【鵺】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_24444"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Oboro Garasu": {
+      "zh": "幻魔杂记【胧乌】",
+      "ja": "幻魔雑記【朧烏】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_9109"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Rasho-gan": {
+      "zh": "幻魔杂记【罗掌愿】",
+      "ja": "幻魔雑記【羅掌願】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_25805"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Sasaki Ganryu": {
+      "zh": "幻魔杂记【佐佐木岩流】",
+      "ja": "幻魔雑記【佐々木巌流】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_3833"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Shuten Doji": {
+      "zh": "幻魔杂记【酒吞童子】",
+      "ja": "幻魔雑記【酒呑童子】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_9253"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Togemaru": {
+      "zh": "幻魔杂记【棘丸】",
+      "ja": "幻魔雑記【棘丸】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_27860"
+      ],
+      "kind": "official-item"
+    },
+    "Genma Note: Yoshitsune": {
+      "zh": "幻魔杂记【源义经】",
+      "ja": "幻魔雑記【源義経】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_21723"
+      ],
+      "kind": "official-item"
+    },
+    "Lesser Soul Crystal": {
+      "zh": "魂结晶【小】",
+      "ja": "魂結晶【小】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_15452"
+      ],
+      "kind": "official-item"
+    },
+    "Mirror of Revival": {
+      "zh": "返魂镜",
+      "ja": "反魂鏡",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_19198"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Bow": {
+      "zh": "鬼之刚弓",
+      "ja": "鬼ノ剛弓",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_m1482218624"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Cloth (Aggressor)": {
+      "zh": "鬼之织物【攻势】",
+      "ja": "鬼ノ織物【攻勢】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_11088"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Cloth (Awakening)": {
+      "zh": "鬼之织物【觉醒】",
+      "ja": "鬼ノ織物【覚醒】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_28559"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Cloth (Healing)": {
+      "zh": "鬼之织物【治愈】",
+      "ja": "鬼ノ織物【治癒】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_2901"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Cloth (Regeneration)": {
+      "zh": "鬼之织物【再生】",
+      "ja": "鬼ノ織物【再生】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_16480"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Cloth (Resistance)": {
+      "zh": "鬼之织物【攻守】",
+      "ja": "鬼ノ織物【攻守】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_24482"
+      ],
+      "kind": "official-item"
+    },
+    "Oni Stone": {
+      "zh": "鬼石",
+      "ja": "鬼石",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_m111058624"
+      ],
+      "kind": "official-item"
+    },
+    "Power Stone": {
+      "zh": "力石",
+      "ja": "力石",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_1080394368"
+      ],
+      "kind": "official-item"
+    },
+    "Skeleton Hozuki": {
+      "zh": "镂空鬼灯",
+      "ja": "透かし鬼灯",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_m2003256576"
+      ],
+      "kind": "official-item"
+    },
+    "Special chest": {
+      "zh": "特殊宝箱（内容未标注）",
+      "ja": "特殊な宝箱（内容記載なし）",
+      "kind": "unknown",
+      "source": null,
+      "keys": []
+    },
+    "Still Water": {
+      "zh": "太刀【止水】",
+      "ja": "太刀【止水】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_12633"
+      ],
+      "kind": "official-item"
+    },
+    "Sun-Dried Hozuki": {
+      "zh": "鬼灯干",
+      "ja": "天日鬼灯",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_27324"
+      ],
+      "kind": "official-item"
+    },
+    "Tamahagane": {
+      "zh": "玉钢",
+      "ja": "玉鋼",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_1544132352"
+      ],
+      "kind": "official-item"
+    },
+    "The Flashing Void": {
+      "zh": "锐枪【闪空】",
+      "ja": "鋭鎗【閃空】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_7374"
+      ],
+      "kind": "official-item"
+    },
+    "The Two Celestials": {
+      "zh": "双刀【二天】",
+      "ja": "双刀【二天】",
+      "source": "itemdatatext.msg.23",
+      "keys": [
+        "ItemDataText_IT_19861"
+      ],
+      "kind": "official-item"
+    },
+    "Adashino Nenbutsuji Temple district": {
+      "zh": "化野念佛寺",
+      "ja": "あだし野念仏寺",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_00"
+      ],
+      "kind": "official-place"
+    },
+    "Arashiyama area 1": {
+      "zh": "岚山 · 地图区域1",
+      "ja": "嵐山・地図エリア1",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_211"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Bamboo Path district": {
+      "zh": "竹林小径",
+      "ja": "竹林の小径",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_01"
+      ],
+      "kind": "official-place"
+    },
+    "Castle Entrance district": {
+      "zh": "山城入口",
+      "ja": "城入口",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area209_04"
+      ],
+      "kind": "official-place"
+    },
+    "Cave Area district": {
+      "zh": "洞窟前",
+      "ja": "洞窟前",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area209_03"
+      ],
+      "kind": "official-place"
+    },
+    "Eastern Kyoto area 11": {
+      "zh": "洛东 · 地图区域11",
+      "ja": "洛東・地図エリア11",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 13": {
+      "zh": "洛东 · 地图区域13",
+      "ja": "洛東・地図エリア13",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 15": {
+      "zh": "洛东 · 地图区域15",
+      "ja": "洛東・地図エリア15",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 16": {
+      "zh": "洛东 · 地图区域16",
+      "ja": "洛東・地図エリア16",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 19": {
+      "zh": "洛东 · 地图区域19",
+      "ja": "洛東・地図エリア19",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 7": {
+      "zh": "洛东 · 地图区域7",
+      "ja": "洛東・地図エリア7",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Eastern Kyoto area 8": {
+      "zh": "洛东 · 地图区域8",
+      "ja": "洛東・地図エリア8",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_100"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Gojo Street - East district": {
+      "zh": "五条通　东",
+      "ja": "五条通　東",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_13"
+      ],
+      "kind": "official-place"
+    },
+    "Gojo Street - West district": {
+      "zh": "五条通　西",
+      "ja": "五条通　西",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_11"
+      ],
+      "kind": "official-place"
+    },
+    "Hall district": {
+      "zh": "内堂",
+      "ja": "お堂",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area202_01"
+      ],
+      "kind": "official-place"
+    },
+    "Higashioji Street district": {
+      "zh": "东大路通",
+      "ja": "東大路通",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_14"
+      ],
+      "kind": "official-place"
+    },
+    "Horin-ji Temple district": {
+      "zh": "法轮寺",
+      "ja": "法輪寺",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_07"
+      ],
+      "kind": "official-place"
+    },
+    "Hozu River district": {
+      "zh": "保津川",
+      "ja": "保津川",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_05"
+      ],
+      "kind": "official-place"
+    },
+    "Kamo River - East district": {
+      "zh": "鸭川　东",
+      "ja": "鴨川　東",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_20"
+      ],
+      "kind": "official-place"
+    },
+    "Keep Area district": {
+      "zh": "天守阁前",
+      "ja": "天守閣前",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area214_05"
+      ],
+      "kind": "official-place"
+    },
+    "Kiyomizu-dera Temple area 2": {
+      "zh": "清水寺 · 地图区域2",
+      "ja": "清水寺・地図エリア2",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_201"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Kiyomizu-dera Temple area 2 (2)": {
+      "zh": "清水寺 · 地图区域2 (2)",
+      "ja": "清水寺・地図エリア2 (2)",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_201"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Kiyomizu-zaka Slope district": {
+      "zh": "清水坂",
+      "ja": "清水坂",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_24"
+      ],
+      "kind": "official-place"
+    },
+    "Main Entrance district": {
+      "zh": "宅邸前",
+      "ja": "屋敷前",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area214_02"
+      ],
+      "kind": "official-place"
+    },
+    "Mount Oe area 11": {
+      "zh": "大江山 · 地图区域11",
+      "ja": "大江山・地図エリア11",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_209"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Mount Oe area 8": {
+      "zh": "大江山 · 地图区域8",
+      "ja": "大江山・地図エリア8",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_209"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Mountain Trail district": {
+      "zh": "山道",
+      "ja": "山道",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area209_01",
+        "Gm900_001_00Points_Area211_03"
+      ],
+      "kind": "official-place"
+    },
+    "Nijo-jo Castle Entrance district": {
+      "zh": "二条城入口",
+      "ja": "二条城入口",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area203_01"
+      ],
+      "kind": "official-place"
+    },
+    "Nine-story Pagoda district": {
+      "zh": "龟顶塔",
+      "ja": "亀頂塔",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_04"
+      ],
+      "kind": "official-place"
+    },
+    "Nio-mon Gate district": {
+      "zh": "仁王门前",
+      "ja": "仁王門前",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area201_02"
+      ],
+      "kind": "official-place"
+    },
+    "Palace Entrance district": {
+      "zh": "御所入口",
+      "ja": "御所入口",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area215_00"
+      ],
+      "kind": "official-place"
+    },
+    "Rokudo-chinnoji Temple district": {
+      "zh": "六道珍皇寺",
+      "ja": "六道珍皇寺",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area214_00",
+        "Gm900_001_00Points_Area100_10"
+      ],
+      "kind": "official-place"
+    },
+    "Sandbar - Entrance district": {
+      "zh": "沙洲入口",
+      "ja": "中州入口",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_27"
+      ],
+      "kind": "official-place"
+    },
+    "Shijo Street district": {
+      "zh": "四条通",
+      "ja": "四条通",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_16"
+      ],
+      "kind": "official-place"
+    },
+    "Spiral Stairs 2 district": {
+      "zh": "螺旋阶梯【贰】",
+      "ja": "螺旋階段【弐】",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area214_03"
+      ],
+      "kind": "official-place"
+    },
+    "Storehouse district": {
+      "zh": "仓库",
+      "ja": "倉庫",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area209_08"
+      ],
+      "kind": "official-place"
+    },
+    "Temple district": {
+      "zh": "寺院",
+      "ja": "寺院",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area211_02"
+      ],
+      "kind": "official-place"
+    },
+    "Underground Laboratory area 5": {
+      "zh": "地下研究所 · 地图区域5",
+      "ja": "地下研究所・地図エリア5",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_204"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Underground Laboratory area 6": {
+      "zh": "地下研究所 · 地图区域6",
+      "ja": "地下研究所・地図エリア6",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_204"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Underground Laboratory area 7": {
+      "zh": "地下研究所 · 地图区域7",
+      "ja": "地下研究所・地図エリア7",
+      "source": "gm900_001_00stage.msg.23",
+      "keys": [
+        "Gm900_001_00Stage_204"
+      ],
+      "kind": "map-numbered-area"
+    },
+    "Underground Level 3 district": {
+      "zh": "地下三层",
+      "ja": "地下三階",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area204_01"
+      ],
+      "kind": "official-place"
+    },
+    "Yasaka Pagoda district": {
+      "zh": "八坂塔",
+      "ja": "八坂の塔",
+      "source": "gm900_001_00points.msg.23",
+      "keys": [
+        "Gm900_001_00Points_Area100_23"
+      ],
+      "kind": "official-place"
+    }
+  }
+}
