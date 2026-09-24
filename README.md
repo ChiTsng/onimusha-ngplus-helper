@@ -1,4 +1,10 @@
-# 鬼武者 · 周目继承助手 0.9
+# 鬼武者 · 周目继承助手 0.10
+
+0.10：默认遮蔽 SteamID64、路径中的 Windows 用户名和 Steam userdata 账号目录；路径候选使用编号区分。可点击“显示隐私信息”临时查看并手动编辑路径，再点击隐藏。应用内输出日志、错误提示及写入确认也会脱敏；切换语言或重新打开程序会恢复默认隐藏。内部路径、账号和存档处理逻辑不变。系统文件选择窗口不受保护，备份与磁盘报告也不是脱敏文件；分享前仍需检查。
+
+Privacy: SteamID64 and personal Windows/Steam path components are hidden by default, including in app logs, errors and write confirmations. Reveal/hide does not change save operations. Native file dialogs and files on disk are NOT redacted.
+
+プライバシー：SteamID64 とパス内の Windows ユーザー名・Steam アカウント番号は既定で非表示です。アプリ内ログ・エラー・書き込み確認にも適用します。システムのファイル選択画面とディスク上のファイルは対象外です。
 
 Windows x64 / Steam版 / 简体中文、English、日本語离线工具。无需安装 Python 或 .NET。完整解压发布包，运行 OnimushaNGPlus.exe。
 

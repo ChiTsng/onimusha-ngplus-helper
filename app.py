@@ -8,6 +8,7 @@ import webbrowser
 import core
 import i18n
 import chest_labels
+import privacy
 from i18n import tr
 
 
@@ -16,7 +17,7 @@ class App(tk.Tk):
         super().__init__()
         i18n.set_language(language)
         self.next_language=None
-        self.title(tr('鬼武者 · 周目继承助手 0.9'))
+        self.title(tr('鬼武者 · 周目继承助手 0.10'))
         self.geometry(f'1160x{min(960,self.winfo_screenheight()-100)}');self.minsize(960,680)
         self.configure(background='#eef2f5')
         self.ui_font='Yu Gothic UI' if language=='ja' else ('Segoe UI' if language=='en' else 'Microsoft YaHei UI')
@@ -71,6 +72,7 @@ class App(tk.Tk):
         style.configure('Treeview.Heading',padding=10,background='#eaf0f4',font=(self.ui_font,10,'bold'),relief='flat')
         style.map('Treeview',background=[('selected','#dceeea')],foreground=[('selected','#125b51')])
         self.path=tk.StringVar();self.sid=tk.StringVar();self.source=tk.StringVar();self.target=tk.StringVar()
+        self.path_display=tk.StringVar();self.revealed=False;self.discovered_paths=[];self.syncing_path=False;self.log_raw=''
         self.mode=tk.StringVar(value='growth');self.finalcheck=tk.BooleanVar()
         self.status=tk.StringVar(value=tr('先读取存档。推荐先查漏，再准备NG+目标栏位。'))
         self.save=None;self.candidate=None;self.busy=False;self.events=queue.Queue();self.buttons=[]
@@ -102,11 +104,14 @@ class App(tk.Tk):
             return box
         files_card=card(tr('01   选择存档'))
         files=ttk.Frame(files_card);files.pack(fill='x')
-        self.filecombo=ttk.Combobox(files,textvariable=self.path,width=30);self.filecombo.grid(row=0,column=0,columnspan=3,sticky='ew')
+        self.filecombo=ttk.Combobox(files,textvariable=self.path_display,state='readonly',width=30);self.filecombo.grid(row=0,column=0,columnspan=3,sticky='ew')
         self.button(files,tr('浏览…'),self.browse).grid(row=0,column=3,padx=5)
         self.button(files,tr('自动寻找'),self.find).grid(row=0,column=4)
         ttk.Label(files,text='SteamID64').grid(row=1,column=0,sticky='w')
-        ttk.Entry(files,textvariable=self.sid,width=24).grid(row=1,column=1,sticky='w')
+        self.sid_entry=ttk.Entry(files,textvariable=self.sid,width=24,show='•');self.sid_entry.grid(row=1,column=1,sticky='w')
+        self.privacy_button=self.button(files,tr('显示隐私信息'),self.toggle_privacy)
+        self.privacy_button.grid(row=1,column=2,padx=5,sticky='w')
+        ttk.Label(files,text=tr('默认隐藏账号和路径个人信息；系统文件选择窗口不受保护。手动编辑路径请先显示。'),style='Muted.TLabel',wraplength=850).grid(row=2,column=0,columnspan=5,sticky='w')
         self.button(files,tr('读取 / 重新读取'),self.read,'Accent.TButton').grid(row=1,column=3,columnspan=2,sticky='ew',pady=8)
         files.columnconfigure(2,weight=1)
         select=ttk.Frame(files_card);select.pack(fill='x',pady=(4,0))
@@ -156,7 +161,10 @@ class App(tk.Tk):
         self.sid.trace_add('write',self.reset_confirmation)
         self.update_mode()
         self.show(tr('尚未生成预览\n先读取存档、检查来源收集，再选择继承方式。所有修改会先展示预览，并在写入前备份。'))
-        self.filecombo.bind('<<ComboboxSelected>>',lambda e:self.sid.set(core.steam_id(self.path.get())))
+        self.filecombo.bind('<<ComboboxSelected>>',self.select_path)
+        self.path.trace_add('write',self.refresh_privacy)
+        self.sid.trace_add('write',self.refresh_privacy)
+        self.path_display.trace_add('write',self.edit_path)
         self.protocol('WM_DELETE_WINDOW',self.close)
         self.poll_id=self.after(100,self.poll)
         if initial:
@@ -175,6 +183,38 @@ class App(tk.Tk):
 
     def button(self,parent,text,command,style='TButton'):
         b=ttk.Button(parent,text=text,style=style,command=lambda:self.safe(command));self.buttons.append(b);return b
+
+    def private_text(self,text):
+        if self.revealed:return str(text)
+        return privacy.redact(text,(self.sid.get().strip(),getattr(self,'loaded_sid','')))
+
+    def refresh_privacy(self,*_):
+        self.syncing_path=True
+        try:
+            self.path_display.set(self.private_text(self.path.get()))
+            self.filecombo['values']=[f'{i+1} | {self.private_text(p)}' for i,p in enumerate(self.discovered_paths)]
+        finally:self.syncing_path=False
+        self.show(self.log_raw)
+
+    def toggle_privacy(self):
+        self.revealed=not self.revealed
+        self.sid_entry.configure(show='' if self.revealed else '•')
+        self.filecombo.configure(state='normal' if self.revealed else 'readonly')
+        self.privacy_button.configure(text=tr('隐藏隐私信息') if self.revealed else tr('显示隐私信息'))
+        self.refresh_privacy()
+
+    def edit_path(self,*_):
+        if self.revealed and not self.syncing_path:
+            # Combobox selection contains an index; the selection handler maps it
+            # to the original path. Never send a masked/display string to core.
+            if self.path_display.get() not in self.filecombo['values']:
+                self.path.set(self.path_display.get())
+
+    def select_path(self,event=None):
+        index=self.filecombo.current()
+        if 0<=index<len(self.discovered_paths):
+            path=self.discovered_paths[index]
+            self.path.set(path);self.sid.set(core.steam_id(path))
 
     def reset_confirmation(self,*_):
         self.finalcheck.set(False)
@@ -196,7 +236,7 @@ class App(tk.Tk):
     def safe(self,fn):
         if self.busy:return
         try:fn()
-        except Exception as e:messagebox.showerror(tr('无法完成'),str(e),parent=self)
+        except Exception as e:messagebox.showerror(tr('无法完成'),self.private_text(e),parent=self)
 
     def invalidate(self,*_):
         self.candidate=None
@@ -207,7 +247,8 @@ class App(tk.Tk):
             except Exception:pass
 
     def show(self,text):
-        self.log.delete('1.0','end');self.log.insert('end',text)
+        self.log_raw=str(text)
+        self.log.delete('1.0','end');self.log.insert('end',self.private_text(text))
 
     def run(self,fn,done,status):
         self.busy=True;self.status.set(status)
@@ -223,10 +264,10 @@ class App(tk.Tk):
             for b in self.buttons:b.configure(state='normal')
             if ok:
                 try:done(value)
-                except Exception as e:messagebox.showerror(tr('无法完成'),str(e),parent=self)
+                except Exception as e:messagebox.showerror(tr('无法完成'),self.private_text(e),parent=self)
             else:
                 self.status.set(tr('操作未完成；请检查错误说明。'))
-                messagebox.showerror(tr('无法完成'),value,parent=self)
+                messagebox.showerror(tr('无法完成'),self.private_text(value),parent=self)
         except queue.Empty:pass
         self.poll_id=self.after(100,self.poll)
 
@@ -237,7 +278,8 @@ class App(tk.Tk):
         self.destroy()
 
     def find(self):
-        paths=[str(p) for p in core.discover()];self.filecombo['values']=paths
+        paths=[str(p) for p in core.discover()];self.discovered_paths=paths
+        self.refresh_privacy()
         if len(paths)==1 and not self.path.get():
             self.path.set(paths[0]);self.sid.set(core.steam_id(paths[0]))
         if len(paths)>1:self.status.set(tr('发现多个账号存档，请在路径下拉框明确选择自己的文件；不会默认选择首个账号。'))
@@ -317,8 +359,9 @@ class App(tk.Tk):
                 self.status.set(tr('选项已变化，请重新生成预览。'));return
             self.candidate=result;self.preview_signature=sig
             _,report=result
-            self.show(tr('来源 {v0}号 → 目标 {v1}号\n\n',v0=source + 1,v1=target + 1)+'\n'.join('• '+c for c in report['changes'])+
-                      tr('\n\n只修改目标手动栏位及明确列出的共享外观。\n自动存档、来源及其余手动栏位保留。写回前还将进行加密回读校验。'))
+            scope=(tr('\n\n仅复制目标手动栏位的数值强化与红魂；不修改剧情、背包、再战资格或共享外观。\n自动存档、来源及其余手动栏位保留。写回前还将进行加密回读校验。') if mode=='growth' else
+                   tr('\n\n只修改目标手动栏位及明确列出的共享外观。\n自动存档、来源及其余手动栏位保留。写回前还将进行加密回读校验。'))
+            self.show(tr('来源 {v0}号 → 目标 {v1}号\n\n',v0=source + 1,v1=target + 1)+'\n'.join('• '+c for c in report['changes'])+scope)
             self.status.set(tr('预览已生成。检查内容后选择写回或另存。'))
         self.run(lambda:save.plan(source,target,mode,confirmed),done,tr('正在生成候选并核对修改范围…'))
 
@@ -330,7 +373,7 @@ class App(tk.Tk):
             p=filedialog.asksaveasfilename(title=tr('另存加密存档'),initialfile='data001Slot.bin',defaultextension='.bin')
             if not p:return
             output=Path(p).resolve()
-        if not messagebox.askyesno(tr('确认应用'),tr('将修改预览中的内容写入：\n{v0}\n\n现有文件会先备份。是否继续？',v0=output),parent=self):return
+        if not messagebox.askyesno(tr('确认应用'),tr('将修改预览中的内容写入：\n{v0}\n\n现有文件会先备份。是否继续？',v0=self.private_text(output)),parent=self):return
         expected=output.read_bytes() if output.exists() else None
         candidate,report=self.candidate;sid=self.loaded_sid
         original_path,original=self.loaded_path,self.loaded_bytes

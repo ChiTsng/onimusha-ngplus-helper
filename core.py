@@ -164,7 +164,7 @@ class Save:
                 count += self.raw(pa)!=self.raw(pb)
                 copy_value(pa,pb)
             copy_value(root(source)+SOUL,root(target)+SOUL)
-            changes += [tr('继承技能树：{v0} 个节点发生变化',v0=count),
+            changes += [tr('复制数值强化：{v0} 项强化记录发生变化',v0=count),
                         tr('红魂：{v0} → {v1}',v0=self.number(root(target) + SOUL),v1=self.number(root(source) + SOUL))]
         else:
             sa,se=self.region(root(source),outer(source)+'/f1:EBCC6B98')

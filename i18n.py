@@ -12,7 +12,10 @@ def tr(message,**values):
     return text.format(**values) if values else text
 
 MESSAGES={
- '鬼武者 · 周目继承助手 0.9':('Onimusha · NG+ Assistant 0.9','鬼武者 · 周回引き継ぎアシスタント 0.9'),
+ '鬼武者 · 周目继承助手 0.10':('Onimusha · NG+ Assistant 0.10','鬼武者 · 周回引き継ぎアシスタント 0.10'),
+ '显示隐私信息':('Show private info','個人情報を表示'),
+ '隐藏隐私信息':('Hide private info','個人情報を隠す'),
+ '默认隐藏账号和路径个人信息；系统文件选择窗口不受保护。手动编辑路径请先显示。':('Account and personal path details are hidden by default. System file dialogs are not protected. Reveal to edit paths.','アカウントとパスの個人情報は既定で非表示です。システムのファイル選択画面は対象外です。パスの手入力には表示を切り替えてください。'),
  '物品与具名地区采用游戏内译名；地图区域编号不是官方地名。选择条目可核对英文原名。':('Items and named places use game-localized names. Numbered map areas are not official place names. Select a row to view the original English.','アイテム名・固有地名はゲーム内表記です。地図エリア番号は公式地名ではありません。項目を選択すると英語原文を確認できます。'),
  '鬼武者 · 周目继承助手 0.8':('Onimusha · NG+ Assistant 0.8','鬼武者 · 周回引き継ぎアシスタント 0.8'),
  '补齐最终连战前16项鬼杀再战资格；弁庆（武器解放）与最终源义经不提前解锁，已有资格不撤销':('Unlock 16 pre-finale Carnage rematches. Do not newly unlock Benkei (Weapon Unleashed) or final Yoshitsune; keep any existing unlocks.','最終連戦前の鬼殺再戦16項目を解放。弁慶（武器解放）と最終戦の源義経は先行解放せず、既存の資格は維持します。'),
@@ -122,7 +125,8 @@ MESSAGES={
  '字段越界':('Field outside file bounds.','フィールドがファイル範囲外です。'),
  '来源与目标字段不兼容':('Source and destination fields are incompatible.','移行元と移行先のフィールドに互換性がありません。'),
  '技能树布局尚未验证':('Unverified skill-tree layout.','未検証のスキルツリー構造です。'),
- '继承技能树：{v0} 个节点发生变化':('Skill upgrades: {v0} nodes changed.','スキル引き継ぎ：{v0}ノードが変化。'),
+ '复制数值强化：{v0} 项强化记录发生变化':('Copy stat upgrades: {v0} upgrade records changed.','ステータス強化をコピー：{v0}件の強化データが変化。'),
+ '\n\n仅复制目标手动栏位的数值强化与红魂；不修改剧情、背包、再战资格或共享外观。\n自动存档、来源及其余手动栏位保留。写回前还将进行加密回读校验。':('\n\nCopy only stat upgrades and Red Souls to the destination manual slot. Story, inventory, rematch eligibility and shared cosmetics stay unchanged.\nSource, other manual slots and autosaves stay intact. Encryption round-trip validation runs before writing.','\n\n移行先の手動スロットにステータス強化と赤魂のみをコピーします。ストーリー・所持品・再戦資格・共通外見は変更しません。\n移行元・他の手動スロット・オートセーブは維持します。書き込み前に暗号化と復号の一致を検証します。'),
  '红魂：{v0} → {v1}':('Red Souls: {v0} → {v1}','赤魂：{v0} → {v1}'),
  '两栏位序列化布局不同，无法安全同步此存档':('Slot layouts differ. Safe synchronization is not possible.','スロットのシリアル化構造が異なるため、安全に同期できません。'),
  '以来源重建目标剧情、任务、地图、养成、背包与收集状态；保留目标周目身份与再战成绩':('Rebuild destination story, quests, map, upgrades, inventory and collection from source; keep destination NG+ identity and shared rematch completion.','移行元から物語・任務・マップ・育成・所持品・収集状態を再構築。移行先の周回情報と共通の再戦達成状態は維持します。'),

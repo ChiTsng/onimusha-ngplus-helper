@@ -44,11 +44,11 @@ def build():
     dist=HERE/'dist/OnimushaNGPlus'
     for name in ('README.md','THIRD_PARTY.md','LICENSE'):
         shutil.copy2(HERE/name,dist/name)
-    with zipfile.ZipFile(HERE/'dist/OnimushaNGPlus-0.9-win64.zip','w',zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(HERE/'dist/OnimushaNGPlus-0.10-win64.zip','w',zipfile.ZIP_DEFLATED) as z:
         for p in dist.rglob('*'):
             if p.is_file():z.write(p,Path('OnimushaNGPlus')/p.relative_to(dist))
-    with zipfile.ZipFile(HERE/'dist/OnimushaNGPlus-0.9-source.zip','w',zipfile.ZIP_DEFLATED) as z:
-        for name in ('app.py','core.py','i18n.py','chest_labels.py','official_labels.json','dsss.py','chests.json','build.py','tests.py','tests_i18n.py','README.md','THIRD_PARTY.md','LICENSE','REQUIREMENTS.md'):
+    with zipfile.ZipFile(HERE/'dist/OnimushaNGPlus-0.10-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+        for name in ('app.py','core.py','i18n.py','privacy.py','chest_labels.py','official_labels.json','dsss.py','chests.json','build.py','tests.py','tests_i18n.py','README.md','THIRD_PARTY.md','LICENSE','REQUIREMENTS.md'):
             z.write(HERE/name,name)
 
 if __name__=='__main__':

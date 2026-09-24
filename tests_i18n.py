@@ -63,7 +63,28 @@ def run():
         assert i18n.tr('力石') in '\n'.join(report['changes'])
         with patch.object(core,'discover',return_value=[]):
             ui=app.App(lang);ui.withdraw();ui.update_idletasks()
-            assert ui.title()==i18n.tr('鬼武者 · 周目继承助手 0.9')
+            assert ui.title()==i18n.tr('鬼武者 · 周目继承助手 0.10')
+            paths=[Path('C:/Users/ExampleUser/Steam/userdata/123/2638890/remote/win64_save/data001Slot.bin'),Path('C:/Users/ExampleUser/Steam/userdata/456/2638890/remote/win64_save/data001Slot.bin')]
+            with patch.object(core,'discover',return_value=paths):ui.find()
+            assert len(set(ui.filecombo['values']))==2
+            ui.filecombo.current(1);ui.select_path()
+            assert ui.path.get()==str(paths[1])
+            sid=core.steam_id(paths[1]);assert ui.sid.get()==sid
+            assert 'ExampleUser' not in ui.path_display.get() and '456' not in ui.path_display.get()
+            assert ui.sid_entry.cget('show')=='•'
+            ui.show(str(paths[1])+' '+sid)
+            assert sid not in ui.log.get('1.0','end') and 'ExampleUser' not in ui.log.get('1.0','end')
+            signature=ui.signature();ui.toggle_privacy()
+            assert ui.signature()==signature and ui.path_display.get()==str(paths[1])
+            assert sid in ui.log.get('1.0','end')
+            ui.toggle_privacy();assert ui.signature()==signature
+            assert sid not in ui.log.get('1.0','end')
+            with patch.object(app.messagebox,'showerror') as error:
+                ui.safe(lambda: (_ for _ in ()).throw(ValueError(str(paths[1])+' '+sid)))
+                assert sid not in error.call_args.args[1] and 'ExampleUser' not in error.call_args.args[1]
+            ui.toggle_privacy();ui.path_display.set('D:/manual/data001Slot.bin')
+            assert ui.path.get()=='D:/manual/data001Slot.bin'
+            ui.toggle_privacy()
             assert ui.confirm.instate(['disabled'])
             ui.mode.set('finale');ui.confirm.invoke();assert ui.finalcheck.get()
             ui.source.set('1 | fixture');assert not ui.finalcheck.get()

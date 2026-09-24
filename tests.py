@@ -14,7 +14,7 @@ def run(work,crypto_test=False):
         def __init__(self,value=''):self.value=value
         def get(self):return self.value
         def set(self,value):self.value=value
-    ui=SimpleNamespace(filecombo={},path=Var(),sid=Var(),status=Var())
+    ui=SimpleNamespace(filecombo={},path=Var(),sid=Var(),status=Var(),refresh_privacy=Mock())
     candidates=[Path('C:/Steam/userdata/123/2638890/remote/win64_save/data001Slot.bin'),Path('C:/Steam/userdata/456/2638890/remote/win64_save/data001Slot.bin')]
     with patch.object(core,'discover',return_value=candidates):app.App.find(ui)
     assert ui.path.get()=='' and ui.sid.get()==''
